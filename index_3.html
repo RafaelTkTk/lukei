@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LUKEI — Agência de Performance</title>
+<meta name="description" content="Agência de performance e audiovisual para marcas que entendem que marketing é investimento, não custo. Tráfego pago, produção audiovisual e gestão de redes sociais."/>
+<meta name="theme-color" content="#0d1b2a"/>
+<meta name="robots" content="index, follow"/>
+
+<!-- Open Graph -->
+<meta property="og:title" content="LUKEI — Agência de Performance"/>
+<meta property="og:description" content="Para marcas que entendem que marketing não é custo — é o maior investimento do negócio."/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="pt_BR"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="LUKEI — Agência de Performance"/>
+<meta name="twitter:description" content="Para marcas que entendem que marketing não é custo — é o maior investimento do negócio."/>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;1,200;1,300&family=Cormorant+SC:wght@200;300&family=Jost:wght@200;300;400&display=swap&display=swap" rel="stylesheet"/>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:  #0d1b2a;
+  --navy2: #0a1520;
+  --cream: #f5f0e8;
+  --offwh: #faf8f4;
+  --gold:  #b8975a;
+  --gold2: #d4b87a;
+  --muted: #6b6457;
+  --nav-h: 80px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  background: var(--navy);
+  color: var(--cream);
+  overflow-x: hidden;
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── CURSOR ── */
+.cursor {
+  width: 7px; height: 7px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  will-change: transform;
+}
+.cursor-ring {
+  width: 30px; height: 30px;
+  border: 0.5px solid var(--gold);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%,-50%);
+  opacity: 0.45;
+  transition: width .3s, height .3s, opacity .3s;
+  will-change: transform;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  padding: 0 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background .4s;
+}
+nav.scrolled {
+  background: rgba(10,21,32,0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 0.4px solid rgba(184,151,90,0.18);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 200; font-size: 24px;
+  letter-spacing: 0.44em; padding-right: 0.44em;
+  color: var(--cream); text-decoration: none;
+}
+.nav-links { display: flex; gap: 44px; list-style: none; }
+.nav-links a {
+  font-family: 'Jost', sans-serif;
+  font-weight: 200; font-size: 10.5px;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(245,240,232,0.55); text-decoration: none;
+  transition: color .3s;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible { color: var(--gold); outline: none; }
+.nav-cta {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300; font-size: 10px;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold);
+  border: 0.5px solid rgba(184,151,90,0.4);
+  padding: 11px 24px; text-decoration: none;
+  transition: background .3s, color .3s;
+}
+.nav-cta:hover,
+.nav-cta:focus-visible { background: var(--gold); color: var(--navy); outline: none; }
+
+/* ── HERO ── */
+#hero {
+  height: 100vh; min-height: 680px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  text-align: center;
+  padding: 0 24px;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 18% 55%, rgba(184,151,90,0.05) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 25%, rgba(184,151,90,0.03) 0%, transparent 50%);
+}
+.hero-grain {
+  position: absolute; inset: 0; opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+  pointer-events: none;
+}
+.hero-top-line {
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184,151,90,0.45), transparent);
+}
+.hero-corner {
+  position: absolute; width: 18px; height: 18px; opacity: 0.3;
+}
+.hero-corner.tl { top: 50px; left: 64px; border-top: 0.5px solid var(--gold); border-left: 0.5px solid var(--gold); }
+.hero-corner.tr { top: 50px; right: 64px; border-top: 0.5px solid var(--gold); border-right: 0.5px solid var(--gold); }
+.hero-corner.bl { bottom: 50px; left: 64px; border-bottom: 0.5px solid var(--gold); border-left: 0.5px solid var(--gold); }
+.hero-corner.br { bottom: 50px; right: 64px; border-bottom: 0.5px solid var(--gold); border-right: 0.5px solid var(--gold); }
+
+.hero-eyebrow {
+  font-family: 'Cormorant SC', serif;
+  font-weight: 200; font-size: 9.5px;
+  letter-spacing: 0.55em; color: var(--gold);
+  margin-bottom: 32px;
+  opacity: 0; animation: fadeUp 1s ease .2s forwards;
+}
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 200;
+  font-size: clamp(64px, 11vw, 124px);
+  letter-spacing: 0.52em; padding-right: 0.52em;
+  color: var(--cream); line-height: 1;
+  opacity: 0; animation: fadeUp 1.2s cubic-bezier(.22,1,.36,1) .4s forwards;
+}
+.hero-rule {
+  width: 240px; height: 0.4px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 28px auto;
+  opacity: 0; animation: fadeIn 1s ease .9s forwards;
+}
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; font-style: italic;
+  font-size: clamp(17px, 2.4vw, 26px);
+  color: rgba(245,240,232,0.6);
+  letter-spacing: 0.04em; max-width: 640px;
+  line-height: 1.55;
+  opacity: 0; animation: fadeUp 1s ease 1s forwards;
+}
+.hero-cta-wrap {
+  margin-top: 56px; display: flex; gap: 24px; align-items: center;
+  flex-wrap: wrap; justify-content: center;
+  opacity: 0; animation: fadeUp 1s ease 1.3s forwards;
+}
+.hero-btn {
+  font-family: 'Cormorant SC', serif;
+  font-weight: 300; font-size: 10.5px;
+  letter-spacing: 0.45em;
+  background: var(--gold); color: var(--navy);
+  padding: 16px 48px; text-decoration: none;
+  transition: background .3s, transform .2s;
+  display: inline-block;
+}
+.hero-btn:hover,
+.hero-btn:focus-visible { background: var(--gold2); transform: translateY(-2px); outline: none; }
+.hero-btn-out {
+  font-family: 'Jost', sans-serif;
+  font-weight: 200; font-size: 10px;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(245,240,232,0.45); text-decoration: none;
+  transition: color .3s;
+}
+.hero-btn-out:hover,
+.hero-btn-out:focus-visible { color: var(--gold); outline: none; }
+
+.hero-scroll {
+  position: absolute; bottom: 40px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  opacity: 0; animation: fadeIn 1s ease 2s forwards;
+  pointer-events: none;
+}
+.hero-scroll span { font-size: 8px; letter-spacing: 0.35em; color: var(--gold); opacity: 0.45; }
+.scroll-line {
+  width: 0.5px; height: 38px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: .3; }
+  50%       { opacity: .8; }
+}
+
+/* ── LAYOUT ── */
+.section-inner { max-width: 1080px; margin: 0 auto; padding: 0 64px; }
+
+.sec-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 200; font-size: 10.5px;
+  letter-spacing: 0.42em; color: var(--gold);
+  display: block; margin-bottom: 10px;
+}
+.sec-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(28px, 3.8vw, 46px);
+  letter-spacing: 0.08em; color: var(--navy);
+  margin-bottom: 48px; line-height: 1.15;
+}
+.gold-rule {
+  width: 100%; height: 0.4px;
+  background: linear-gradient(90deg, rgba(184,151,90,0.45), transparent);
+  margin-bottom: 64px;
+}
+
+/* ── REVEAL ── */
+.reveal,
+.pq-card,
+.servico-row,
+.dif-card,
+.step-box {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .75s ease, transform .75s ease;
+}
+.reveal.visible,
+.pq-card.visible,
+.servico-row.visible,
+.dif-card.visible,
+.step-box.visible { opacity: 1; transform: translateY(0); }
+
+/* ── PARA QUEM ── */
+#paraquem { background: var(--offwh); padding: 128px 0; }
+
+.paraquem-intro {
+  font-size: 15.5px; color: var(--muted);
+  line-height: 1.95; max-width: 620px; margin-bottom: 64px;
+}
+.paraquem-intro strong { font-weight: 400; color: var(--navy); }
+
+.paraquem-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+
+.pq-card { background: var(--navy); padding: 44px 32px; transition: opacity .7s ease, transform .7s ease, background .3s; }
+.pq-card:hover { background: #112233; }
+.pq-icon {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 200; font-size: 38px;
+  color: rgba(184,151,90,0.2); line-height: 1; margin-bottom: 20px;
+}
+.pq-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; font-size: 18px;
+  color: var(--cream); letter-spacing: 0.06em; margin-bottom: 16px;
+}
+.pq-desc { font-size: 13px; color: rgba(245,240,232,0.45); line-height: 1.85; }
+
+/* ── SERVIÇOS ── */
+#servicos { background: var(--navy); padding: 128px 0; }
+
+.servicos-list { display: flex; flex-direction: column; }
+
+.servico-row {
+  display: grid; grid-template-columns: 72px 1fr 1fr;
+  gap: 48px; align-items: start;
+  padding: 56px 0;
+  border-bottom: 0.4px solid rgba(184,151,90,0.1);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.servico-row:first-child { border-top: 0.4px solid rgba(184,151,90,0.1); }
+
+.srv-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 200; font-size: 52px;
+  color: rgba(184,151,90,0.12); line-height: 1; padding-top: 6px;
+}
+.srv-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; font-size: 26px;
+  color: var(--cream); letter-spacing: 0.07em; margin-bottom: 8px;
+}
+.srv-sub {
+  font-family: 'Cormorant SC', serif;
+  font-weight: 200; font-size: 8.5px;
+  letter-spacing: 0.42em; color: var(--gold); margin-bottom: 22px;
+}
+.srv-rule { width: 36px; height: 0.5px; background: var(--gold); opacity: 0.4; margin-bottom: 20px; }
+.srv-desc { font-size: 13.5px; color: rgba(245,240,232,0.45); line-height: 1.85; }
+
+.srv-itens { list-style: none; display: flex; flex-direction: column; gap: 12px; padding-top: 8px; }
+.srv-itens li {
+  font-size: 12.5px; color: rgba(245,240,232,0.35);
+  padding-left: 18px; position: relative; line-height: 1.5;
+}
+.srv-itens li::before { content: '—'; position: absolute; left: 0; color: var(--gold); opacity: 0.5; }
+
+/* ── DIFERENCIAIS ── */
+#diferenciais { background: var(--cream); padding: 128px 0; }
+
+.dif-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; }
+
+.dif-card {
+  padding: 52px 44px;
+  border: 0.4px solid rgba(13,27,42,0.08);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.dif-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 200; font-size: 10.5px;
+  letter-spacing: 0.42em; color: var(--gold); margin-bottom: 20px;
+}
+.dif-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; font-size: 22px;
+  color: var(--navy); letter-spacing: 0.06em; margin-bottom: 16px;
+}
+.dif-desc { font-size: 13.5px; color: var(--muted); line-height: 1.85; }
+
+/* ── PROCESSO ── */
+#processo { background: var(--navy2); padding: 128px 0; }
+
+.processo-grid {
+  display: grid; grid-template-columns: repeat(5,1fr); gap: 0;
+  border: 0.4px solid rgba(184,151,90,0.12);
+}
+.step-box {
+  padding: 44px 24px;
+  border-right: 0.4px solid rgba(184,151,90,0.12);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.step-box:last-child { border-right: none; }
+.step-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 200; font-size: 44px;
+  color: rgba(184,151,90,0.12); line-height: 1; margin-bottom: 18px;
+}
+.step-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; font-size: 16px;
+  color: var(--cream); letter-spacing: 0.06em; margin-bottom: 12px;
+}
+.step-rule { width: 24px; height: 0.5px; background: var(--gold); opacity: 0.4; margin-bottom: 14px; }
+.step-desc { font-size: 12px; color: rgba(245,240,232,0.38); line-height: 1.75; }
+
+/* ── CTA BAND ── */
+#ctaband { background: var(--gold); padding: 80px 64px; text-align: center; }
+.ctaband-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; font-style: italic;
+  font-size: clamp(24px, 3.5vw, 44px);
+  color: var(--navy); letter-spacing: 0.06em;
+  margin-bottom: 12px; line-height: 1.35;
+}
+.ctaband-sub {
+  font-size: 13px; color: rgba(13,27,42,0.6);
+  letter-spacing: 0.1em; margin-bottom: 40px;
+}
+.ctaband-btn {
+  display: inline-block;
+  font-family: 'Cormorant SC', serif;
+  font-weight: 300; font-size: 10.5px;
+  letter-spacing: 0.45em;
+  background: var(--navy); color: var(--cream);
+  padding: 16px 52px; text-decoration: none;
+  transition: background .3s, transform .2s;
+}
+.ctaband-btn:hover,
+.ctaband-btn:focus-visible { background: #0a1520; transform: translateY(-2px); outline: none; }
+
+/* ── CONTATO ── */
+#contato {
+  background: var(--navy); padding: 140px 0;
+  text-align: center; position: relative; overflow: hidden;
+}
+#contato::before {
+  content: 'LUKEI';
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 200;
+  font-size: clamp(100px, 19vw, 240px);
+  letter-spacing: 0.3em;
+  color: rgba(245,240,232,0.018);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  white-space: nowrap; pointer-events: none;
+  user-select: none;
+}
+.contato-rule { width: 180px; height: 0.4px; background: var(--gold); opacity: 0.35; margin: 0 auto 44px; }
+.contato-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 200; font-size: clamp(40px,7vw,72px);
+  letter-spacing: 0.5em; padding-right: 0.5em;
+  color: var(--cream); margin-bottom: 14px;
+}
+.contato-tag {
+  font-family: 'Cormorant SC', serif;
+  font-weight: 200; font-size: 9px;
+  letter-spacing: 0.52em; color: var(--gold); margin-bottom: 52px;
+}
+.contato-grid {
+  border: 0.4px solid rgba(184,151,90,0.14);
+  margin: 0 auto 56px;
+  max-width: 260px;
+}
+.contato-item { padding: 32px 24px; }
+.contato-item:hover { background: rgba(184,151,90,0.04); }
+.contato-label {
+  font-family: 'Cormorant SC', serif;
+  font-weight: 200; font-size: 7.5px;
+  letter-spacing: 0.45em; color: var(--gold); display: block; margin-bottom: 10px;
+}
+.contato-val {
+  font-size: 13px; color: rgba(245,240,232,0.65);
+  text-decoration: none; transition: color .3s; letter-spacing: 0.05em;
+}
+.contato-val:hover,
+.contato-val:focus-visible { color: var(--gold); outline: none; }
+.contato-cta {
+  display: inline-block;
+  font-family: 'Cormorant SC', serif;
+  font-weight: 300; font-size: 11px;
+  letter-spacing: 0.45em;
+  background: var(--gold); color: var(--navy);
+  padding: 17px 52px; text-decoration: none;
+  transition: background .3s, transform .2s;
+}
+.contato-cta:hover,
+.contato-cta:focus-visible { background: var(--gold2); transform: translateY(-2px); outline: none; }
+.contato-frase {
+  margin-top: 72px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; font-style: italic;
+  font-size: 16px; letter-spacing: 0.06em;
+  color: rgba(245,240,232,0.22);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #070d14;
+  padding: 28px 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 0.4px solid rgba(184,151,90,0.08);
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 200; font-size: 15px;
+  letter-spacing: 0.42em; color: rgba(245,240,232,0.3);
+}
+.footer-right { display: flex; align-items: center; gap: 32px; }
+.footer-ig {
+  font-size: 10px; letter-spacing: 0.22em;
+  color: rgba(184,151,90,0.55); text-decoration: none;
+  transition: color .3s;
+}
+.footer-ig:hover,
+.footer-ig:focus-visible { color: var(--gold); outline: none; }
+.footer-copy { font-size: 10px; letter-spacing: 0.15em; color: rgba(245,240,232,0.18); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .processo-grid { grid-template-columns: repeat(3,1fr); }
+  .step-box:nth-child(3) { border-right: none; }
+  .step-box:nth-child(4) { border-top: 0.4px solid rgba(184,151,90,0.12); }
+  .step-box:nth-child(5) { border-top: 0.4px solid rgba(184,151,90,0.12); border-right: none; }
+}
+
+@media (max-width: 900px) {
+  :root { --nav-h: 64px; }
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .section-inner { padding: 0 24px; }
+  .hero-corner { display: none; }
+  #paraquem, #servicos, #diferenciais, #processo, #contato { padding: 80px 0; }
+  .paraquem-grid { grid-template-columns: 1fr; }
+  .servico-row { grid-template-columns: 1fr; gap: 20px; padding: 40px 0; }
+  .srv-num { font-size: 36px; }
+  .dif-grid { grid-template-columns: 1fr; }
+  .processo-grid { grid-template-columns: 1fr 1fr; }
+  .step-box:nth-child(3) { border-right: none; }
+  .step-box:nth-child(odd) { border-right: 0.4px solid rgba(184,151,90,0.12); }
+  .step-box:nth-child(even) { border-right: none; }
+  .step-box:nth-child(n+3) { border-top: 0.4px solid rgba(184,151,90,0.12); }
+  .step-box:last-child { grid-column: span 2; border-right: none; }
+  #ctaband { padding: 60px 24px; }
+  footer { flex-direction: column; gap: 14px; text-align: center; padding: 24px; }
+  .footer-right { flex-direction: column; gap: 8px; }
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero-cta-wrap { flex-direction: column; gap: 16px; }
+  .hero-btn { padding: 14px 36px; }
+  .servico-row { grid-template-columns: 1fr; }
+  .processo-grid { grid-template-columns: 1fr; }
+  .step-box { border-right: none !important; grid-column: span 1 !important; }
+  .step-box:nth-child(n+2) { border-top: 0.4px solid rgba(184,151,90,0.12); }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav id="nav" role="navigation" aria-label="Navegação principal">
+  <a href="#hero" class="nav-logo" aria-label="Lukei — Página inicial">LUKEI</a>
+  <ul class="nav-links">
+    <li><a href="#paraquem">Para quem</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#diferenciais">Diferenciais</a></li>
+    <li><a href="#processo">Processo</a></li>
+  </ul>
+  <a href="https://instagram.com/lukeimkt" target="_blank" rel="noopener noreferrer" class="nav-cta" aria-label="Falar com a Lukei no Instagram">Falar com a Lukei</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero" aria-label="Apresentação">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grain" aria-hidden="true"></div>
+  <div class="hero-top-line" aria-hidden="true"></div>
+  <div class="hero-corner tl" aria-hidden="true"></div>
+  <div class="hero-corner tr" aria-hidden="true"></div>
+  <div class="hero-corner bl" aria-hidden="true"></div>
+  <div class="hero-corner br" aria-hidden="true"></div>
+
+  <p class="hero-eyebrow">AGÊNCIA DE PERFORMANCE</p>
+  <h1 class="hero-name">LUKEI</h1>
+  <div class="hero-rule" aria-hidden="true"></div>
+  <p class="hero-headline">Para marcas que entendem que marketing<br>não é custo — é o maior investimento do negócio.</p>
+
+  <div class="hero-cta-wrap">
+    <a href="#servicos" class="hero-btn" aria-label="Ver serviços da Lukei">CONHEÇA OS SERVIÇOS</a>
+    <a href="https://instagram.com/lukeimkt" target="_blank" rel="noopener noreferrer" class="hero-btn-out" aria-label="Falar com a equipe no Instagram">Falar com a equipe →</a>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section id="paraquem" aria-label="Para quem é a Lukei">
+  <div class="section-inner">
+    <span class="sec-num reveal">01</span>
+    <h2 class="sec-title reveal">Para marcas que<br>levam o negócio a sério.</h2>
+    <div class="gold-rule reveal" aria-hidden="true"></div>
+
+    <p class="paraquem-intro reveal">
+      A Lukei não atende qualquer empresa. Trabalhamos com marcas que entendem que <strong>marketing bem feito é alavanca de crescimento</strong> — não despesa. Se você busca resultado real, mensurável e construído com excelência, é aqui.
+    </p>
+
+    <div class="paraquem-grid">
+      <div class="pq-card">
+        <div class="pq-icon" aria-hidden="true">01</div>
+        <h3 class="pq-title">Marcas Premium</h3>
+        <p class="pq-desc">Joalherias, clínicas, hotéis, moda de alto padrão e serviços exclusivos que precisam de presença digital à altura do seu posicionamento.</p>
+      </div>
+      <div class="pq-card">
+        <div class="pq-icon" aria-hidden="true">02</div>
+        <h3 class="pq-title">Empresas em Crescimento</h3>
+        <p class="pq-desc">Negócios que chegaram em um patamar e entendem que o próximo nível exige estratégia, dados e uma identidade visual que converte.</p>
+      </div>
+      <div class="pq-card">
+        <div class="pq-icon" aria-hidden="true">03</div>
+        <h3 class="pq-title">Gestores Exigentes</h3>
+        <p class="pq-desc">Donos e diretores que não aceitam relatórios vazios — que querem saber exatamente o que está sendo feito, por quê e qual o retorno.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" aria-label="Serviços">
+  <div class="section-inner">
+    <span class="sec-num reveal">02</span>
+    <h2 class="sec-title reveal" style="color:var(--cream);">O que fazemos</h2>
+    <div class="gold-rule reveal" aria-hidden="true"></div>
+
+    <div class="servicos-list">
+      <div class="servico-row">
+        <div class="srv-num" aria-hidden="true">01</div>
+        <div>
+          <h3 class="srv-title">Tráfego Pago</h3>
+          <p class="srv-sub">Meta Ads · Google Ads</p>
+          <div class="srv-rule" aria-hidden="true"></div>
+          <p class="srv-desc">Campanhas de performance construídas para gerar retorno real. Cada real investido é rastreado, analisado e otimizado. Nenhum orçamento desperdiçado em audiência errada.</p>
+        </div>
+        <ul class="srv-itens" aria-label="Entregáveis de tráfego pago">
+          <li>Estratégia e planejamento de mídia</li>
+          <li>Criação e teste de criativos de alta conversão</li>
+          <li>Segmentação precisa do público ideal</li>
+          <li>Gestão de orçamento e lances</li>
+          <li>Otimização contínua e relatórios mensais</li>
+        </ul>
+      </div>
+
+      <div class="servico-row">
+        <div class="srv-num" aria-hidden="true">02</div>
+        <div>
+          <h3 class="srv-title">Produção Audiovisual</h3>
+          <p class="srv-sub">Vídeo · Fotografia · Direção de Arte</p>
+          <div class="srv-rule" aria-hidden="true"></div>
+          <p class="srv-desc">A imagem comunica antes das palavras. Produzimos conteúdo cinematográfico e low key alinhado à identidade premium da sua marca — para que cada peça posicione, não apenas apareça.</p>
+        </div>
+        <ul class="srv-itens" aria-label="Entregáveis de audiovisual">
+          <li>Direção de arte e conceito visual</li>
+          <li>Produção de vídeos para redes e campanhas</li>
+          <li>Fotografia de produto, serviço e campanha</li>
+          <li>Edição, pós-produção e grading cinematográfico</li>
+          <li>Criativos prontos para veiculação</li>
+        </ul>
+      </div>
+
+      <div class="servico-row">
+        <div class="srv-num" aria-hidden="true">03</div>
+        <div>
+          <h3 class="srv-title">Gestão de Redes Sociais</h3>
+          <p class="srv-sub">Instagram · LinkedIn · Meta</p>
+          <div class="srv-rule" aria-hidden="true"></div>
+          <p class="srv-desc">Presença digital que posiciona. Gerenciamos sua marca nas redes com estratégia editorial, conteúdo de alto nível e métricas reais — construindo autoridade e audiência qualificada consistentemente.</p>
+        </div>
+        <ul class="srv-itens" aria-label="Entregáveis de redes sociais">
+          <li>Planejamento editorial mensal</li>
+          <li>Criação de conteúdo (copy e visual)</li>
+          <li>Publicação, agendamento e monitoramento</li>
+          <li>Estratégia de crescimento orgânico</li>
+          <li>Relatório mensal de performance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais" aria-label="Por que a Lukei">
+  <div class="section-inner">
+    <span class="sec-num reveal">03</span>
+    <h2 class="sec-title reveal">Por que a Lukei</h2>
+    <div class="gold-rule reveal" aria-hidden="true"></div>
+
+    <div class="dif-grid">
+      <div class="dif-card">
+        <div class="dif-num">01</div>
+        <h3 class="dif-title">Resultado como única entrega</h3>
+        <p class="dif-desc">Não vendemos presença, não vendemos posts, não vendemos relatórios bonitos. Vendemos crescimento. Tudo que fazemos é medido e conectado a uma meta real de negócio.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-num">02</div>
+        <h3 class="dif-title">Estratégia antes de execução</h3>
+        <p class="dif-desc">Antes de qualquer ação, entendemos seu negócio, seu público e sua concorrência. A estratégia define o que fazemos — não o contrário.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-num">03</div>
+        <h3 class="dif-title">Estética que converte</h3>
+        <p class="dif-desc">Para marcas premium, a qualidade visual é parte do produto. Produzimos conteúdo que eleva o posicionamento da marca e gera desejo — o que se traduz diretamente em vendas.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-num">04</div>
+        <h3 class="dif-title">Transparência total</h3>
+        <p class="dif-desc">Relatórios mensais com dados reais, linguagem clara e análise honesta. Você sabe exatamente onde está cada real investido e o que ele gerou.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section id="processo" aria-label="Como trabalhamos">
+  <div class="section-inner">
+    <span class="sec-num reveal">04</span>
+    <h2 class="sec-title reveal" style="color:var(--cream);">Como trabalhamos</h2>
+    <div class="gold-rule reveal" aria-hidden="true"></div>
+
+    <div class="processo-grid">
+      <div class="step-box">
+        <div class="step-n" aria-hidden="true">01</div>
+        <h3 class="step-title">Imersão</h3>
+        <div class="step-rule" aria-hidden="true"></div>
+        <p class="step-desc">Entendemos o negócio, o público e os objetivos reais antes de qualquer ação.</p>
+      </div>
+      <div class="step-box">
+        <div class="step-n" aria-hidden="true">02</div>
+        <h3 class="step-title">Estratégia</h3>
+        <div class="step-rule" aria-hidden="true"></div>
+        <p class="step-desc">Planejamos canais, metas e indicadores com clareza desde o primeiro dia.</p>
+      </div>
+      <div class="step-box">
+        <div class="step-n" aria-hidden="true">03</div>
+        <h3 class="step-title">Produção</h3>
+        <div class="step-rule" aria-hidden="true"></div>
+        <p class="step-desc">Criamos os ativos com direção de arte própria e execução técnica rigorosa.</p>
+      </div>
+      <div class="step-box">
+        <div class="step-n" aria-hidden="true">04</div>
+        <h3 class="step-title">Ativação</h3>
+        <div class="step-rule" aria-hidden="true"></div>
+        <p class="step-desc">Lançamos e monitoramos em tempo real, ajustando para maximizar resultado.</p>
+      </div>
+      <div class="step-box">
+        <div class="step-n" aria-hidden="true">05</div>
+        <h3 class="step-title">Otimização</h3>
+        <div class="step-rule" aria-hidden="true"></div>
+        <p class="step-desc">Analisamos, identificamos oportunidades e entregamos relatório mensal completo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section id="ctaband" aria-label="Chamada para ação">
+  <p class="ctaband-title">Marketing feito para crescer sua empresa.<br>Não para preencher calendário.</p>
+  <p class="ctaband-sub">Se você está pronto para investir com estratégia, a Lukei está pronta para entregar.</p>
+  <a href="https://instagram.com/lukeimkt" target="_blank" rel="noopener noreferrer" class="ctaband-btn" aria-label="Conhecer a Lukei no Instagram">QUERO CONHECER A LUKEI</a>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" aria-label="Contato">
+  <div class="section-inner">
+    <div class="contato-rule reveal" aria-hidden="true"></div>
+    <div class="contato-logo reveal">LUKEI</div>
+    <p class="contato-tag reveal">AGÊNCIA DE PERFORMANCE</p>
+
+    <div class="contato-grid reveal">
+      <div class="contato-item">
+        <span class="contato-label">Instagram</span>
+        <a href="https://instagram.com/lukeimkt" target="_blank" rel="noopener noreferrer" class="contato-val" aria-label="Seguir @lukeimkt no Instagram">@lukeimkt</a>
+      </div>
+    </div>
+
+    <a href="https://instagram.com/lukeimkt" target="_blank" rel="noopener noreferrer" class="contato-cta reveal" aria-label="Seguir a Lukei no Instagram">SEGUIR NO INSTAGRAM</a>
+
+    <p class="contato-frase reveal">Resultado não é promessa. É o único entregável.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">LUKEI</div>
+  <div class="footer-right">
+    <a href="https://instagram.com/lukeimkt" target="_blank" rel="noopener noreferrer" class="footer-ig" aria-label="Instagram da Lukei">@lukeimkt</a>
+    <span class="footer-copy">© 2025 Lukei · Todos os direitos reservados</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── Cursor personalizado ──
+  const cursor = document.getElementById('cursor');
+  const ring   = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', function (e) {
+    mx = e.clientX; my = e.clientY;
+  });
+
+  (function loop() {
+    rx += (mx - rx) * 0.11;
+    ry += (my - ry) * 0.11;
+    cursor.style.left = mx + 'px';
+    cursor.style.top  = my + 'px';
+    ring.style.left   = rx + 'px';
+    ring.style.top    = ry + 'px';
+    requestAnimationFrame(loop);
+  })();
+
+  document.querySelectorAll('a, button').forEach(function (el) {
+    el.addEventListener('mouseenter', function () {
+      ring.style.width   = '50px';
+      ring.style.height  = '50px';
+      ring.style.opacity = '.75';
+    });
+    el.addEventListener('mouseleave', function () {
+      ring.style.width   = '30px';
+      ring.style.height  = '30px';
+      ring.style.opacity = '.45';
+    });
+  });
+
+  // ── Nav scroll ──
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ── Scroll reveal ──
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target); // para de observar após revelar
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(
+    '.reveal, .pq-card, .servico-row, .dif-card, .step-box'
+  ).forEach(function (el, i) {
+    el.style.transitionDelay = (i % 5) * 0.08 + 's';
+    obs.observe(el);
+  });
+
+})();
+</script>
+</body>
+</html>
